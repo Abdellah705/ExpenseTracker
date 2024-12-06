@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>Expenses</h2>
+
+<!--  <form (submit)="saveExpense()" class="mb-4">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Description"
+          [(ngModel)]="newExpense.description"
+          name="description"
+          required
+        />
+      </div>
+      <div class="col-md-3">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Amount"
+          [(ngModel)]="newExpense.amount"
+          name="amount"
+          required
+        />
+      </div>
+      <div class="col-md-3">
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="newExpense.date"
+          name="date"
+          required
+        />
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Add Expense</button>
+      </div>
+    </div>
+  </form>-->
+<a routerLink = "/addExpense" >Add Expense</a>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let expense of expenses; let i = index">
+      <td>{{ expense.id }}</td>
+      <td>{{ expense.description }}</td>
+      <td>{{ expense.amount }}</td>
+      <td>{{ expense.date }}</td>
+      <td style="display: flex; justify-content: space-between;">
+        <button
+          class="btn btn-success btn-sm"
+          (click)="editExpense(expense.id)"
+        >
+          EDIT
+        </button>
+        <button
+          class="btn btn-danger btn-sm"
+          (click)="deleteExpense(expense.id)"
+        >
+          Delete
+        </button>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
